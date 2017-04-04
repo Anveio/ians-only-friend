@@ -13,7 +13,7 @@ class RollTheBonesCmd extends commando.Command {
   }
   async run(message, args) {
     var roll = this._generateRoll();
-    message.reply(roll);
+    message.reply("Your Rolls: " + roll);
   }
   
   _rawRoll() {  
