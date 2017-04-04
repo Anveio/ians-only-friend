@@ -1,6 +1,6 @@
-const commando = require('discord.js-commando');
+const Commando = require('discord.js-commando');
 
-class RollTheBonesCmd extends commando.Command {
+class RollTheBonesCmd extends Commando.Command {
   constructor(client) {
     super(client, {
       name: 'roll',
@@ -12,11 +12,12 @@ class RollTheBonesCmd extends commando.Command {
     this.BUFFS_ARRAY = ["Grand Melee", "Jolly Roger", "Buried Treasure", "Broadsides", "Shark Infested Waters", "True Bearing"];
   }
   async run(message, args) {
-    let roll = this._generateRoll();
-    let fullMessage = roll.map(el => {
-      
-    });
-    message.reply("Your Rolls: " + fullMessage);
+    var roll = this._generateRoll();
+    // var fullMessage = roll.map(el => {
+    //   el = el + ":game_die: " ;
+    // });
+    // message.reply("Your Rolls: " + fullMessage);
+    message.reply("Your Rolls: " + roll);
   }
   
   _rawRoll() {  
