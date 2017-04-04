@@ -17,7 +17,7 @@ class RollTheBonesCmd extends Commando.Command {
     let full_message = roll.map(el => {
       return (":game_die:" + el);
     });
-    message.reply("Grade: " + grade + full_message);
+    message.reply("Grade: " + grade + " " + full_message);
   }
   
   _generateRoll() { 
@@ -55,17 +55,17 @@ class RollTheBonesCmd extends Commando.Command {
   _gradedRoll(roll) {
     let score = this._calculatedScore(roll);
     if (score >= 5.9) {
-        return "Six Buff!"; // Six buff
+        return ":heart_eyes"; // Six buff
     } else if(score >= 3.98) {
-      return "Extremely Good"; // True-bearing + Shark + one other buff
+      return ":kissing_closed_eyes:"; // True-bearing + Shark + one other buff
     } else if(score >= 2.66) {
-      return "Definitely Above Average"; // True-Bearing + another buff
+      return ":relaxed:"; // True-Bearing + another buff
     } else if(score >= 1.97) {
-      return "Good enough, I guess"; // Bad three-buff or shark + one bad buff or single True-bearing.
+      return ":relieved:"; // Bad three-buff or shark + one bad buff or single True-bearing.
     } else if(score >= 1.33) {
-      return "Keep if you've got cooldowns up"; // Single shark
+      return ":thinking:"; // Single shark
     } else {
-      return "Terrible. Reroll." ; // Bad one buff, bad two buffs.
+      return ":pensive:" ; // Bad one buff, bad two buffs.
     }
   }
 }
