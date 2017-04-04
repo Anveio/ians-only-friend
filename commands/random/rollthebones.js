@@ -12,9 +12,8 @@ class RollTheBonesCmd extends commando.Command {
     this.BUFFS_ARRAY = ["Grand Melee", "Jolly Roger", "Buried Treasure", "Broadsides", "Shark Infested Waters", "True Bearing"];
   }
   async run(message, args) {
-    var roll = 6;
-    // var roll = this._generateRoll();
-    message.reply("You rolled a " + roll);
+    var roll = this._generateRoll();
+    message.reply(roll);
   }
   
   _rawRoll() {  
