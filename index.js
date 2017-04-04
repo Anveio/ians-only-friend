@@ -1,7 +1,7 @@
 // const Discord = require("discord.js");
 const Commando = require('discord.js-commando');
 const client = new Commando.Client({
-    owner: '226909433970556930'
+  owner: '226909433970556930'
 });
 
 client.registry.registerGroup('random', "Random");
@@ -19,4 +19,4 @@ client.on('message', msg => {
   }
 });
 
-client.login('Mjk4OTE0ODI3NjEzNzY1NjMz.C8WRsw.LxivOYZp8m9ANtgBsmAYuvwKHbM');
+client.login(process.env.DISCORD_BOT_TOKEN);

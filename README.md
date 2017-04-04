@@ -5,9 +5,11 @@ A Discord bot for personal use.
 
 ```
 nvm install v7.8.0
-npm install discord-js --save
-npm install npm install discord.js-commando --save
+nvm use 7.8.0
+npm install --save discord.js
+npm install discord.js-commando --save
 ```
+Ignore any `UNMET PEER DEPENDENCY` warnings, those are optional and add support for other things like voice.
 
 # Running the Bot
 
