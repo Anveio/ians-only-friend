@@ -1,22 +1,20 @@
-// const Discord = require("discord.js");
 const Commando = require('discord.js-commando');
 const client = new Commando.Client({
-  owner: '226909433970556930'
+  owner: '226909433970556930' // Anveio
 });
 
-client.registry.registerGroup('random', "Random");
-client.registry.registerDefaults();
-client.registry.registerCommandsIn(__dirname + "/commands");
 
+client.registry.registerDefaults();
+client.registry.registerGroups([
+  ['random', "Random"],
+  ['sound', "Sound"],
+  ['singleton', "Singleton"],
+  ['youtube', "YouTube"]
+]);
+client.registry.registerCommandsIn(__dirname + "/commands");
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`);
-});
-
-client.on('message', msg => {
-  if (msg.content === 'ping') {
-    msg.reply('Pong!');
-  }
 });
 
 client.login(process.env.DISCORD_BOT_TOKEN);

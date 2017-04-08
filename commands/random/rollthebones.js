@@ -1,27 +1,34 @@
-const Commando = require('discord.js-commando');
+const { Command } = require('discord.js-commando');
+var opus = require('node-opus');
 
-class RollTheBonesCmd extends Commando.Command {
+module.exports = class RollTheBonesCmd extends Command {
   constructor(client) {
     super(client, {
       name: 'roll',
       group: 'random',
       memberName: 'roll',
-      description: 'Allows users to simulate Roll the Bones ability in WoW'
+      description: 'Allows users to simulate the Roll the Bones ability in WoW',
+      throttling: {
+        usages: 2,
+        duration: 5
+      }
     });
     
     this.BUFFS_ARRAY = ["Grand Melee", "Jolly Roger", "Buried Treasure", "Broadsides", "Shark Infested Waters", "True Bearing"];
   }
   async run(message, args) {
     let roll = this._generateRoll();
-    let grade = this._gradedRoll(roll)
-    let full_message = roll.map(el => {
-      return (":game_die:" + el);
+    let grade = this._gradedRoll(roll);
+    let results = roll.map(el => {
+      return (el + ":game_die:");
     });
-    message.reply("Grade: " + grade + " " + full_message);
+    message.reply(grade + "\n " + results);
   }
   
   _generateRoll() { 
-    return (this._findModes(this._generateHistogram(this._rawRoll())));
+    return (this._findModes
+           (this._generateHistogram
+           (this._rawRoll())));
   }
   
   _rawRoll() {  
@@ -55,19 +62,18 @@ class RollTheBonesCmd extends Commando.Command {
   _gradedRoll(roll) {
     let score = this._calculatedScore(roll);
     if (score >= 5.9) {
-        return ":heart_eyes"; // Six buff
+      return "Perfect SIX BUFF! :heart_eyes:"; // Six buff
     } else if(score >= 3.98) {
-      return ":kissing_closed_eyes:"; // True-bearing + Shark + one other buff
+      return "Extremely good! :kissing_closed_eyes:"; // True-bearing + Shark + one other buff
     } else if(score >= 2.66) {
-      return ":relaxed:"; // True-Bearing + another buff
+      return "Pretty good. :relaxed:"; // True-Bearing + another buff
     } else if(score >= 1.97) {
-      return ":relieved:"; // Bad three-buff or shark + one bad buff or single True-bearing.
+      return "Good enough to keep. :relieved:"; // Bad three-buff or shark + one bad buff or single True-bearing.
     } else if(score >= 1.33) {
-      return ":thinking:"; // Single shark
+      return "Maybe if you  have cooldowns. :thinking:"; // Single shark
     } else {
-      return ":pensive:" ; // Bad one buff, bad two buffs.
+      return "Time to reroll. :pensive:" ; // Bad one buff, bad two buffs.
     }
   }
 }
 
-module.exports = RollTheBonesCmd;
