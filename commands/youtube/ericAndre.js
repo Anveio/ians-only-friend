@@ -35,6 +35,9 @@ module.exports = class YouJustGotRoastedCmd extends Command {
     const { clipID } = args;
     const clip = this.clipToPlay(clipID);
     
+    const queue = this.queue
+    console.log(queue);
+    
     if (channel === undefined) {
       message.reply("You can't use that command outside of a voice channel.");
       return;
@@ -58,7 +61,10 @@ module.exports = class YouJustGotRoastedCmd extends Command {
     })
     .catch(err => {
       console.log(err);
-      message.reply("Connection timed out. This is usually caused by calling a command before another one has finished playing. This will be fixed soon.");
+      message.reply(`Connection timed out. 
+                    This is usually caused by calling a command 
+                    before another one has finished playing.
+                    Anveio will fix this soon.`);
     });
   }
   

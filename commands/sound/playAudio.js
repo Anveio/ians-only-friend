@@ -1,6 +1,4 @@
 const { Command } = require('discord.js-commando');
-const ytdl = require('ytdl-core');
-const streamOptions = { seek: 0, volume: 1 };
 
 module.exports = class PlayAudioCmd extends Command {
   constructor(client) {
