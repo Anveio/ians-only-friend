@@ -10,6 +10,12 @@ nvm install v7.9.0
 nvm use 7.9.0
 ```
 
+In order to enable playing audio in voice channels, we'll need ffmpeg:
+
+```
+sudo apt-get install ffmpeg
+```
+
 Install dependencies listed in `package.json`:
 
 ```
