@@ -6,8 +6,8 @@ A Discord bot for personal use.
 Node ^7.0.0 is required. We'll use the latest version. In your terminal run:
 
 ```
-nvm install v7.9.0
-nvm use 7.9.0
+nvm install v7.10.0
+nvm use 7.10.0
 ```
 
 In order to enable playing audio in voice channels, we'll need ffmpeg:
