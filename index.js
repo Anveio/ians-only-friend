@@ -1,4 +1,4 @@
-const { config } = require('./config')
+const { config }  = require('./config');
 
 const Commando = require('discord.js-commando');
 const client = new Commando.Client({
