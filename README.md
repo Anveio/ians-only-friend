@@ -1,5 +1,12 @@
-# ians-only-friend
-A Discord bot for personal use.
+# roasted-bot
+A bot build with discord.js and commando that allows users to invoke commands and hear audio clips (via ytdl-core).
+
+Available commands:
+
+* !ericandre: Plays a random Eric Andre clip in a voice channel. Enter a number from 0 to 37 after the command to get a specific clip.
+* !roasted: Plays the "You Just Got Roasted" Filthy Frank video in the voice channel of the user who invoked it.
+* !666: Demonstrates your knowledge of mathematics.
+
 
 # Installation
 
