@@ -7,7 +7,6 @@ Available commands:
 * !roasted: Plays the "You Just Got Roasted" Filthy Frank video in the voice channel of the user who invoked it.
 * !666: Demonstrates your knowledge of mathematics.
 
-
 # Installation
 
 Node ^7.0.0 is required. We'll use the latest version. In your terminal run:
