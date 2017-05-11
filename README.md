@@ -1,5 +1,5 @@
 # roasted-bot
-A bot build with discord.js and commando that allows users to invoke commands and hear audio clips (via ytdl-core).
+A bot build with [discord.js](https://discord.js.org/#/) and [commando](https://www.npmjs.com/package/discord.js-commando) that allows users to invoke commands and hear audio clips (via [ytdl-core](https://github.com/fent/node-ytdl-core)).
 
 Available commands:
 
