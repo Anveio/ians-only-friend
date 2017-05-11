@@ -34,12 +34,6 @@ module.exports = class CleanCommand extends Command {
 					type: 'string',
 					default: '',
 					parse: str => str.toLowerCase()
-				},
-				{
-					key: 'member',
-					prompt: 'whose messages would you like to delete?\n',
-					type: 'member',
-					default: ''
 				}
 			]
 		});
@@ -83,7 +77,7 @@ module.exports = class CleanCommand extends Command {
 			msg.channel.bulkDelete(messagesToDelete.array().reverse()).catch(err => null);
 		}
 
-		const messagesToDelete = await msg.channel.fetchMessages({ limit: limit }).catch(err => null);
-		msg.channel.bulkDelete(messagesToDelete.array().reverse()).catch(err => null);
+		// const messagesToDelete = await msg.channel.fetchMessages({ limit: limit }).catch(err => null);
+		// msg.channel.bulkDelete(messagesToDelete.array().reverse()).catch(err => null);
 	}
 };

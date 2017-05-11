@@ -8,7 +8,7 @@ module.exports = class ageOfMythology extends Command {
     super(client, {
       name: 'ian',
       aliases: ['999','aom', 'ageofmythology'],
-      group: 'youtube',
+      group: 'singleton',
       memberName: 'ian',
       description: 'A command only usable by Ian',
       throttling: {
@@ -19,7 +19,7 @@ module.exports = class ageOfMythology extends Command {
   }
   
   hasPermission(msg) {
-		return (msg.author.id === "298914827613765633");
+		return (msg.author.id === "159114235366866944");
 	}
   
   async run(message, args) {

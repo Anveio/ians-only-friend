@@ -9,13 +9,11 @@ module.exports = class YouJustGotRoastedCmd extends Command {
       aliases: ['hit', 'ranch'],
       group: 'youtube',
       memberName: 'ericandre',
-      description: `Plays a random Eric Andre clip in a voice channel. 
-                    Enter a number from 0 to ${youTubeClips.length-1}
-                    after the command to get a specific clip.`,
+      description: `Plays a random Eric Andre clip in a voice channel. Enter a number from 0 to ${youTubeClips.length-1} after the command to get a specific clip.`,
       details: `Type a number from 0 to ${youTubeClips.length-1} to get a specific clip.`,
       throttling: {
-        usages: 1,
-        duration: 1
+        usages: 3,
+        duration: 30
       },
       
       args: [
@@ -34,9 +32,6 @@ module.exports = class YouJustGotRoastedCmd extends Command {
     const channel = message.member.voiceChannel;
     const { clipID } = args;
     const clip = this.clipToPlay(clipID);
-    
-    const queue = this.queue
-    console.log(queue);
     
     if (channel === undefined) {
       message.reply("You can't use that command outside of a voice channel.");
@@ -60,11 +55,8 @@ module.exports = class YouJustGotRoastedCmd extends Command {
       dispatcher.on("end",  () => channel.leave());
     })
     .catch(err => {
-      console.log(err);
-      message.reply(`Connection timed out. 
-                    This is usually caused by calling a command 
-                    before another one has finished playing.
-                    Anveio will fix this soon.`);
+      console.error(err);
+      message.reply(`Connection timed out. This is usually caused by calling a command before another one has finished playing or making too many requests to the YouTube API. Anveio will try to fix this soon.`);
     });
   }
   
